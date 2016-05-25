@@ -1,16 +1,16 @@
 # Site settings
-title: Phillip的闲散时光
+title: 温故而更新
 header-img: "img/green.jpg"
 tagline: "cn"  
-description: "陈素封|读而立·写而生"  
+description: "Phillip|温故·知新·更新"  
 baseurl: ""
 url: "http://cnfeat"  
 
 # About/contact
 owner: 
-  name: " CnFeat"
-  email: CnFeat@gmail.com
-  bio: "写就是写的报酬"
+  name: " Phillip"
+  email: skysword66666@gmail.com
+  bio: "温故·知新·更新"
 
 # Data
 gavatar: http://dreamofbook.qiniudn.com/Az..png
