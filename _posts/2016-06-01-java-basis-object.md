@@ -99,12 +99,149 @@ Collection<Object> setCollection = = new HashSet<>();
 ```
 当使用setCollection.add()方法时得到的是Set方法的add()方法，编译器会将setCollection看作一个HashSet对象。不允许重复元素存入setCollection。
 同理arrayCollection也是如此，编译器会将其当作是ArrayList对象，调用了ArrayList的add()方法。
+#### 多态的条件
+1. 要有要有子类继承关系或者接口实现关系。
+2. 要有要有重写方法。
+3. 父类引用指向子类对象。
+
 #### 多态的局限性
-1. 两个类必须有关联，要么是继承关系，要么是实现关系
+1. 两个类必须有关联，要么是继承关系，要么是实现关系。
 2. 只能调用父类引用有的方法，无法调用子类特有的方法。
+
+#### 多态的好处
+>多态的好处：
+1. 可替换性（substitutability）。多态对已存在代码具有可替换性。例如，多态对圆Circle类工作，对其他任何圆形几何体，如圆环，也同样工作。
+2. 可扩充性（extensibility）。多态对代码具有可扩充性。增加新的子类不影响已存在类的多态性、继承性，以及其他特性的运行和操作。实际上新加子类更容易获得多态功能。例如，在实现了圆锥、半圆锥以及半球体的多态基础上，很容易增添球体类的多态性。
+3. 接口性（interface-ability）。多态是超类通过方法签名，向子类提供了一个共同接口，由子类来完善或者覆盖它而实现的。如图8.3 所示。图中超类Shape规定了两个实现多态的接口方法，computeArea()以及computeVolume()。子类，如Circle和Sphere为了实现多态，完善或者覆盖这两个接口方法。
+4. 灵活性（flexibility）。它在应用中体现了灵活多样的操作，提高了使用效率。
+5. 简化性（simplicity）。多态简化对应用软件的代码编写和修改过程，尤其在处理大量对象的运算和操作时，这个特点尤为突出和重要。
 
 ### 抽象
 修饰符：`abstract`
 用来修饰类和方法，被修饰的类称为抽象类。`抽象类不能实例化`
 如果一个类中的方法被修饰为抽象方法，则这个类也需要修饰为抽象类。只有抽象类的抽象方法被其子类重写提供了具体的方法体内容之后才能进行实例化。
 ``如果子类继承的是抽象类，那么子类要么重写抽象类的抽象方法，要么变为一个抽象的子类。``
+#### 抽象类的多态
+抽象类也可以作为引用，但是new对象需要使用子类，抽象方法调用的是子类重写过的方法。
+
+## surper 与 this的用法
+`surper关键字代表父类`，
+`this关键字代表对象本身`。
+
+>使用super&this调用成员变量和方法
+1. 可以使用super访问父类被子类隐藏的变量或覆盖的方法。当前类如果是从超类继承而来的，当调用super.XX()就是调用基类版本的XX（）方法。见示例1。
+2. 当类中有两个同名变量，一个属于类（类的成员变量），而另一个属于某个特定的方法（方法中的局部变量），使用this区分成员变量和局部变量。见示例2。
+
+示例1：
+```Java
+class Person {
+    protected void print() {
+       System.out.println("The print() in class Person.");
+    }
+}
+
+public class DemoSuper extends Person {
+    public void print() {
+       System.out.println("The print() in class DemoSuper.");
+       super.print();// 调用父类的方法
+    }
+
+    public static void main(String[] args) {
+       DemoSuper ds = new DemoSuper();
+       ds.print();
+    }
+}
+```
+示例2：
+```Java
+public class DemoThis {
+    private String name;
+
+    public void setName(String name) {
+       this.name = name;// 前一个name是private name；后一个name是setName中的参数。
+    }
+}
+```
+
+>使用this表示当前调用方法的对象引用
+假设你希望在方法的内部获得对当前对象的引用，可使用关键字this。this关键字只能在方法内部使用，表示对“调用方法的那个对象”的引用。见示例3。
+
+示例3
+```Java
+Button bn;
+…
+bn.addActionListener(this);
+```
+
+>使用super&this调用构造子
+super（参数）：调用基类中的某一个构造函数（应该为构造函数中的第一条语句）。见示例4。
+this（参数）：调用本类中另一种形成的构造函数（应该为构造函数中的第一条语句）。 见示例5。
+
+示例4
+```Java
+class Person {
+    public static void prt(String s) {
+       System.out.println(s);
+    }
+
+    Person() {
+       prt("A Person.");
+    }
+
+    Person(String name) {
+       prt("A person name is:" + name);
+    }
+}
+
+public class Chinese extends Person {
+    Chinese() {
+       super();// 调用父类构造函数。
+       prt("A chinese.");
+    }
+
+    Chinese(String name) {
+       super(name);// 调用父类具有相同形参的构造函数。
+       prt("his name is:" + name);
+    }
+ 
+    public static void main(String[] args) {
+       Chinese cn = new Chinese();
+       cn = new Chinese("kevin");
+    }
+}
+结果：
+> A Person.
+> A chinese.
+> A person name is:kevin
+> his name is:kevin
+```
+
+示例5
+```Java
+Point(int a,int b){
+    x=a;
+    y=b;
+}
+Point(){
+    this(1,1); //调用point(1,1),必须是第一条语句。
+}
+```
+#### 使用super&this应该注意些什么？
+
+>
+ 1. 调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在编译的时候就会报错。
+ 2. super()和this()类似,区别是，super从子类中调用父类的构造方法，this()在同一类内调用其它方法。
+ 3. super()和this()均需放在构造方法内第一行。
+ 4. 尽管可以用this调用一个构造器，但却不能调用两个。
+ 5. this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。
+ 6. this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量,static方法，static语句块。
+ 7. 从本质上讲，this是一个指向本对象的指针, 然而super是一个Java关键字。
+
+
+两者主要应用在方法中，在构造函数中只能被放置在第一行，所用分别为：
+`surper()表示调用父类的构造方法`，
+`this()表示调用本类的其他构造方法`。
+
+当使用在方法体中时，
+`surper.方法名表示调用父类被子类覆盖的这个方法`，
+`this.变量名表示调用自身成员变量`。
