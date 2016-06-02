@@ -6,8 +6,7 @@ categories: blog
 tags: [Java,Basis,Object]
 description: Java理论基础
 ---
- Java理论基础 对象
- ================
+# Java理论基础 对象
 >万物皆对象     ——《Thinking in Java》
 
 ## 面向对象基础
