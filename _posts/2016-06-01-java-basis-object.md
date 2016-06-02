@@ -132,7 +132,10 @@ Collection<Object> setCollection = = new HashSet<>();
 1. 可以使用super访问父类被子类隐藏的变量或覆盖的方法。当前类如果是从超类继承而来的，当调用super.XX()就是调用基类版本的XX（）方法。见示例1。
 2. 当类中有两个同名变量，一个属于类（类的成员变量），而另一个属于某个特定的方法（方法中的局部变量），使用this区分成员变量和局部变量。见示例2。
 
+
 示例1：
+
+
 ```Java
 class Person {
     protected void print() {
@@ -152,7 +155,11 @@ public class DemoSuper extends Person {
     }
 }
 ```
+
+
 示例2：
+
+
 ```Java
 public class DemoThis {
     private String name;
@@ -167,6 +174,8 @@ public class DemoThis {
 假设你希望在方法的内部获得对当前对象的引用，可使用关键字this。this关键字只能在方法内部使用，表示对“调用方法的那个对象”的引用。见示例3。
 
 示例3
+
+
 ```Java
 Button bn;
 …
@@ -178,6 +187,8 @@ super（参数）：调用基类中的某一个构造函数（应该为构造函
 this（参数）：调用本类中另一种形成的构造函数（应该为构造函数中的第一条语句）。 见示例5。
 
 示例4
+
+
 ```Java
 class Person {
     public static void prt(String s) {
@@ -203,7 +214,7 @@ public class Chinese extends Person {
        super(name);// 调用父类具有相同形参的构造函数。
        prt("his name is:" + name);
     }
- 
+
     public static void main(String[] args) {
        Chinese cn = new Chinese();
        cn = new Chinese("kevin");
@@ -216,7 +227,9 @@ public class Chinese extends Person {
 > his name is:kevin
 ```
 
+
 示例5
+
 ```Java
 Point(int a,int b){
     x=a;
