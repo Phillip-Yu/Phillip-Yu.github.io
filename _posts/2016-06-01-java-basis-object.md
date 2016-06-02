@@ -6,6 +6,28 @@ categories: blog
 tags: [Java,Basis,Object]
 description: Java理论基础
 ---
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Java理论基础 对象](#java理论基础-对象)
+	- [面向对象基础](#面向对象基础)
+		- [封装](#封装)
+			- [访问权限修饰符](#访问权限修饰符)
+		- [继承](#继承)
+			- [实例化过程](#实例化过程)
+			- [重写](#重写)
+		- [多态](#多态)
+			- [多态的条件](#多态的条件)
+			- [多态的局限性](#多态的局限性)
+			- [多态的好处](#多态的好处)
+		- [抽象](#抽象)
+			- [抽象类的多态](#抽象类的多态)
+			- [抽象类的特点](#抽象类的特点)
+			- [抽象类的细节问题](#抽象类的细节问题)
+	- [surper 与 this的用法](#surper-与-this的用法)
+		- [使用super&this应该注意些什么？](#使用superthis应该注意些什么)
+
+<!-- /TOC -->
+
 # Java理论基础 对象
 >万物皆对象     ——《Thinking in Java》
 
