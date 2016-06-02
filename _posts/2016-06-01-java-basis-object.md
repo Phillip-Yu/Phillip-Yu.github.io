@@ -62,6 +62,7 @@ Java一共有四种访问权限修饰符(按访问权限由大到小)：
 
 ### 继承
 关键词：`extend`
+
 ```Java
 public class Father{
   //protected修饰的方法和属性 子类可继承
