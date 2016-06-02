@@ -6,6 +6,9 @@ categories: blog
 tags: [Java,Basis,Object]
 description: Java理论基础
 ---
+# Java理论基础 对象
+>万物皆对象     ——《Thinking in Java》
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Java理论基础 对象](#java理论基础-对象)
@@ -27,9 +30,6 @@ description: Java理论基础
 		- [使用super&this应该注意些什么？](#使用superthis应该注意些什么)
 
 <!-- /TOC -->
-
-# Java理论基础 对象
->万物皆对象     ——《Thinking in Java》
 
 ## 面向对象基础
 
