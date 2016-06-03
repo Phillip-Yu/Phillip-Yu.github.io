@@ -88,6 +88,7 @@ public class TestParcel{
 
 
 在一个方法或者任意的作用域内定义内部类的两个理由：
+
 1. 如前所示，你实现了某个类型的接口，于是可以创建并返回对其的引用。
 2. 你要解决一个复杂的问题，想创建一个类来辅助你的解决方案，但是又不希望这个类是公共可用的。
 
@@ -121,6 +122,7 @@ public Contents cont(){
 ```
 
 若匿名内部类需要一个有参数的构造器：
+
 ```Java
 class Wrapping{
    int i = 0;
@@ -147,6 +149,7 @@ public class Parcel{
 ```
 
 匿名内部类没有命名的构造器，但通过实例初始化，能够达到为一个构造器的效果。
+
 ```Java
 abstract class Base{
    public Base(int i){
@@ -189,6 +192,7 @@ public class AnonymousConstructor{
 普通内部类（非static）可以通过一个特殊的this引用可以链接到其外围类对象。嵌套类就没有这个特殊的this引用，这使得它类似一个static方法。
 
 内部类的继承存在的问题：``那个指向外围类对象的“秘密的”引用必须被初始化，而在导出类中不再存在可连接的缺省对象``。例子如下：
+
 ```Java
 class Outter{
    Outter(){
@@ -212,9 +216,7 @@ public class InheritInner extends Outter.Inner{
 }
 ```
 虽然是继承内部类，但是当生产一个构造器时，缺省的构造器并不算好，而且不能只是传递一个指向外围类对象的引用，必须在构造器内使用如下语法：
-
 `outter.super();`
-
 这样才提供了必要的引用，然后程序才能编译通过。若缺省上面语句，会提示“由于某些中间构造函数调用，没有任何类型 Outter 的外层实例可用”的错误。
 
 ## 内部类的覆盖
@@ -314,6 +316,7 @@ public class InheritInner extends Outter{
 	+ 内部类并没有令人迷惑的“is-a”关系；它就是一个独立的实体。
 
 例子2-1
+
 ```Java
 interface A{}
 interface B{}
@@ -342,6 +345,7 @@ public class MultiInterfaces{
 ```
 
 例子2-2
+
 ```Java
 interface Selector{
    boolean end();
@@ -386,6 +390,7 @@ public class Sequence{
    }
 }
 ```
+
 如果Sequence不适用内部类，就必须声明“Sequence是一个Selector”,对于某个特定的Sequence只能又一个Selector。同时，使用内部类很容易就能拥有另一个方法getRSelector(),用它来生成一个反方向遍历的Selector。只有内部类才有这种灵活性。
 
 
@@ -394,6 +399,7 @@ public class Sequence{
 Java最具有争议的问题之一就是，人们认为Java应该包含某种类似指针的机制，以允许回调。通过回调，对象能够携带一些信息，这些信息允许它在稍后的某个时刻调用初始的对象。
 
 通过内部类提供闭包的功能是完美的解决方案，它比指针更灵活、更安全。见下例：
+
 ```Java
 interface Incrementable{
    void increment();
@@ -460,7 +466,6 @@ public class Callbacks{
 Callee2继承自MyIncrement,有一个与Incrementable接口相同名字的increment()方法,但是两者的Increment()方法行为不同。所以如果Callee2继承了MyIncrement，就不能为了Incrementable的用途而覆盖increment()方法，于是只能使用内部类独立的实现Incrementable。还要注意，当创建了一个内部类时，``并没有在外围类的接口中添加东西，也没有修改外围类的接口``。
 
 Callee2中内部类Closure 里的getCallBackReference()方法，返回一个Incrementable的引用，无论谁获得此引用，都只能调用increment()，除此之外没有其他功能（不像指针那样，允许你做很多事情）。
-
 ``回调的价值在于它的灵活性——可以在运行时动态决定需要调用什么方法。``
 
 ### 内部类与框架
