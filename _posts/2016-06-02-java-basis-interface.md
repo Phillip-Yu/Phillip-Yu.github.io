@@ -45,18 +45,14 @@ public interface Flying{
 >方法：接口中的方法只有定义而没有被实现。
 
 
-
-
- ```Java
-
+```Java
 public interface CalInterface
 {
     final float PI=3.14159f;//定义用于表示圆周率的常量PI
     float getArea(float r);//定义一个用于计算面积的方法getArea()
     float getCircumference(float r);//定义一个用于计算周长的方法getCircumference()
 }
-
- ```
+```
 
 ## 接口的实现
  接口在定义后，就可以在类中实现该接口。在类中实现接口可以使用关键字`implements`，其基本格式如下：
