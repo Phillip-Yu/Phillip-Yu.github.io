@@ -45,8 +45,11 @@ public interface Flying{
 >方法：接口中的方法只有定义而没有被实现。
 
 
+
+
  ```Java
- public interface CalInterface
+
+public interface CalInterface
 {
     final float PI=3.14159f;//定义用于表示圆周率的常量PI
     float getArea(float r);//定义一个用于计算面积的方法getArea()
