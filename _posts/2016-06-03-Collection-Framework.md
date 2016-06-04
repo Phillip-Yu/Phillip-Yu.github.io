@@ -59,6 +59,8 @@ void remove() 从迭代器指向的collection中移除迭代器返回的最后�
 
 ### ListIterator
 
+ListIterater 提供了遍历时添加元素的方法add()。 List接口中remove()的应用。
+
 ListIterator可以双向移动，使用hasPrevious()和previous()，但是只能在使用完hasNext()和next()之后（因为指针要到最后才能使用previous()向前移动）。
 
 ### foreach：增强for循环
@@ -70,7 +72,3 @@ for(Object element : 容器名){
    //实质依然是使用迭代器完成，受到迭代器的限制。
 }
 ```
-
-## List序列
-
-ListIterater 提供了遍历时添加元素的方法add()。 List接口中remove()的应用。
