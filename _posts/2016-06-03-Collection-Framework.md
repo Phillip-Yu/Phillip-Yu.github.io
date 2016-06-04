@@ -20,25 +20,8 @@ description: 实现了Collection接口的子接口List接口的类
 
 ### 特点
 
-`1\. 可重复，唯一。`
-
-`2\. 有序、无序。顺序：指存和取的顺序。存取顺序一致 为有序。存取顺序不一致为无序。`
-
-Collection接口结构图：
-
-```
-collection(集合)
-    |——Set ()
-    |    |——HashSet(哈希)
-    |    |      |——LinkedHashSet
-    |    |
-    |    |——TreeSet
-    |
-    |——List (序列)
-         |——ArrayList
-         |——Vector(已被替换掉，不再使用了)
-         |——LinkedList(链表)
-```
+1. `可重复，唯一。`
+2. `有序、无序。顺序：指存和取的顺序。存取顺序一致 为有序。存取顺序不一致为无序。`
 
 Collection接口方法
 
@@ -81,9 +64,10 @@ ListIterator可以双向移动，使用hasPrevious()和previous()，但是只能
 ### foreach：增强for循环
 
 ```java
-for(数据类型 element ： 容器名){
- element（element直接取出元素内容）
-//实质依然是使用迭代器完成，受到迭代器的限制。
+for(Object element : 容器名){
+   element
+   //element直接取出元素内容
+   //实质依然是使用迭代器完成，受到迭代器的限制。
 }
 ```
 
