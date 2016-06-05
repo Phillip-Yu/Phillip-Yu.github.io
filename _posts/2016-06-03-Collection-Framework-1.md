@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 集合框架
+title: Java集合框架
 date: 2016-6-3
 categories: blog
 tags:
   - Java
   - Collection
-  - List
-description: 实现了Collection接口的子接口List接口的类
+  - Iterator
+description: 'Collection接口,以及迭代器'
 ---
 
 # Collection框架(一)
@@ -34,6 +34,37 @@ Object[] toArray() 变成数组
 boolean remove(Object o) 删除
 Iterator iterator() 迭代器
 ```
+
+## 关于collection与泛型
+
+集合框架为了能够存储多种的数据类型，使用了泛型计数。所以当元素进入集合中被存储起来时，元素的数据类型属性会被全部擦除，变为Object对象。 只有在开始时验证要存入元素的数据类型与要存储的是否一致，取出元素时正确的将取出的元素转换为存入前的数据类型。
+
+```
+Collection<Integer> collectionArray = new ArrayList<Integer>();
+```
+
+`因为泛型不支持基本数据类型int、char等等，所以基础类型的元素想要存入集合中需要将其转换为对应的基础数据类型的包装器类型`
+
+八种基本数据类型的包装器类：
+
+Header One | Header Two
+:--------- | :---------
+byte       | Byte
+short      | Short
+int        | Integer
+long       | Long
+float      | Float
+double     | Double
+char       | Character
+boolean    | Boolean
+
+`在使用时，基础类型的包装器类型具有自动装箱和自动拆箱的特性`
+
+> 自动装箱：基本类型自动转为包装类（int >> Integer）
+
+> 自动拆箱：包装类自动转为基本类型（Integer >> int）
+
+所以基础类型的元素从集合中取出直接使用即可（自动拆箱），不需要做强制类型转换的操作。
 
 ## 迭代器
 
