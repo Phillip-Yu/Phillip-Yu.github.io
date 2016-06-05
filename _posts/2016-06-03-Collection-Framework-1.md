@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java集合框架
+title: Java集合框架(一)
 date: 2016-6-3
 categories: blog
 tags:

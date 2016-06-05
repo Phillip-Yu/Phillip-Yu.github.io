@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Java集合框架
+title: Java集合框架(二)
 date: 2016-6-3
 categories: blog
 tags:
   - Java
-  - Collection
-  - Iterator
-description: 'Collection接口,以及迭代器'
+  - List
+  - Set
+description: List集合、Set集合
 ---
 
 # Collection框架(二)
