@@ -12,7 +12,20 @@ description: 'Collection接口,以及迭代器'
 
 # Collection框架(二)
 
-![集合框架继承关系图](/img/collectionFramework.png)
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Collection框架(二)](#collection框架二)
+	- [List集合](#list集合)
+		- [ArrayList](#arraylist)
+			- [底层结构](#底层结构)
+			- [ArrayList遍历](#arraylist遍历)
+				- [for语句循环遍历](#for语句循环遍历)
+				- [foreach进行遍历](#foreach进行遍历)
+				- [迭代器进行遍历](#迭代器进行遍历)
+
+<!-- /TOC -->
+
+ ![集合框架继承关系图](/img/collectionFramework.png)
 
 ## List集合
 
@@ -62,7 +75,7 @@ for ( int element : ArrayList) {
 }
 ```
 
-#### 迭代器进行遍历
+##### 迭代器进行遍历
 
 使用Iterator迭代ArrayList集合。
 
