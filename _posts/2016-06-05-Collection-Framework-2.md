@@ -14,18 +14,34 @@ description: List集合
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
- - [Collection框架(二)](#collection框架二)
-
-  - [List集合](#list集合)
-
-    - [ArrayList](#arraylist)
-
-      - [底层结构](#底层结构)
-      - [ArrayList遍历](#arraylist遍历)
-
-        - [for语句循环遍历](#for语句循环遍历)
-        - [foreach进行遍历](#foreach进行遍历)
-        - [迭代器进行遍历](#迭代器进行遍历)
+- [Collection框架(二)](#collection框架二)
+	- [List集合](#list集合)
+		- [ArrayList](#arraylist)
+			- [底层结构](#底层结构)
+			- [ArrayList遍历](#arraylist遍历)
+				- [for语句循环遍历](#for语句循环遍历)
+				- [foreach进行遍历](#foreach进行遍历)
+				- [迭代器进行遍历](#迭代器进行遍历)
+			- [关于同步](#关于同步)
+		- [LinkedList 链表](#linkedlist-链表)
+			- [链表的基本介绍](#链表的基本介绍)
+			- [链表的数据结构原理](#链表的数据结构原理)
+			- [私有属性](#私有属性)
+			- [LinkedList的构造方法](#linkedlist的构造方法)
+			- [添加元素add()和addAll()](#添加元素add和addall)
+				- [双向链表添加元素的原理](#双向链表添加元素的原理)
+			- [清除数据clear()](#清除数据clear)
+			- [数据包含 contains(Object o)](#数据包含-containsobject-o)
+			- [删除数据remove()](#删除数据remove)
+			- [数据获取get()](#数据获取get)
+			- [数据复制clone()与toArray()](#数据复制clone与toarray)
+				- [clone()](#clone)
+				- [toArray()](#toarray)
+				- [toArray(T[] a)](#toarrayt-a)
+			- [遍历数据：Iterator()](#遍历数据iterator)
+				- [ListItr](#listitr)
+		- [关于LinkedList实现Stack(堆栈)和Queue(队列)](#关于linkedlist实现stack堆栈和queue队列)
+			- [堆栈](#堆栈)
 
 <!-- /TOC -->
 
