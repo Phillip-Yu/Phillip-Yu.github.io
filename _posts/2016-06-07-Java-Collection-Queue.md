@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 优先级队列
-date: 2016-6-3
+title: 队列
+date: 2016-6-7
 categories: blog
 tags:
   - Java
